@@ -33,7 +33,6 @@ from pandas.core.arrays import (
     ExtensionArray,
     IntegerArray,
 )
-from pandas.core.col import Expression
 from pandas.core.frame import DataFrame
 from pandas.core.generic import NDFrame
 from pandas.core.groupby.grouper import Grouper
@@ -1205,7 +1204,7 @@ TimeZones: TypeAlias = str | tzinfo | None | int
 
 ColumnValue: TypeAlias = AnyArrayLike | Scalar | Sequence[Scalar] | range | None
 # Evaluates to a DataFrame column in DataFrame.assign context.
-IntoColumn: TypeAlias = ColumnValue | Callable[[DataFrame], ColumnValue] | Expression
+IntoColumn: TypeAlias = ColumnValue | Callable[[DataFrame], ColumnValue]
 
 DatetimeLike: TypeAlias = datetime.datetime | np.datetime64 | Timestamp
 DateAndDatetimeLike: TypeAlias = datetime.date | DatetimeLike

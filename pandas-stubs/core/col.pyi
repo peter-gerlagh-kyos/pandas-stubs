@@ -1,11 +1,18 @@
 from collections.abc import Hashable
 from typing import Self
 
+from pandas.core.frame import DataFrame
 from pandas.core.series import Series
 
-from pandas._typing import Scalar
+from pandas._typing import (
+    AnyArrayLike,
+    Scalar,
+)
 
 class Expression:
+    # central definition / use-case
+    def __call__(self, df: DataFrame) -> AnyArrayLike: ...
+
     # binary ops
     def __add__(self, other: Scalar | Series | Self) -> Expression: ...
     def __radd__(self, other: Scalar | Series | Self) -> Expression: ...
